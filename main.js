@@ -8,7 +8,6 @@ document.getElementById('searchForm').addEventListener('submit', (e) => {
      fetch('http://www.omdbapi.com/?i=tt3896198&apikey=af285ce5&s='+searchText)
      .then((res) => res.json())
      .then((data) =>{
-        console.log(data)
         let movies = data.Search
         let output = ''
         movies.forEach((movie, index) => {
@@ -42,7 +41,6 @@ function getMovie(){
     fetch('http://www.omdbapi.com/?i=tt3896198&apikey=af285ce5&t='+movieId)
     .then((res) => res.json()) 
     .then((data) =>{
-        console.log(data)
     let output = `
         <div class="container">
         <div class = "row">
@@ -50,7 +48,7 @@ function getMovie(){
                 <img src ="${data.Poster}" class="thumbnail">
             </div>
             <div class = "col-md-8">
-                <h2>${data.Title}</h2>
+                <h2 class="ttl">${data.Title}</h2>
                 <ul class = "list-group">
                     <li class = "list-group-item"><strong>Genre:  </strong>${data.Genre}</li>
                     <li class ="list-group-item"><strong>Released:  </strong>${data.Released}</li>
